@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ContactHub - Your daily contact manager"
+    />
+    <meta name="keywords" content="ContactHub, contact, manager" />
+    <meta name="author" content="Abdelrahman Ayman" />
+    <meta property="og:image" content="./assets/images/favicon.png" />
+    <meta http-equiv="Permissions-Policy" content="unload=()" />
+    <!-- Font Awesome Pro+ -->
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v7.1.0/css/all.css"
+    />
+    <!-- BootStrap 5.3.0 -->
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Files -->
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="./assets/js/main.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <title>ContactHub - Smart Contact Manager</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg bg-white border-bottom border-2 fixed-top"
+      >
+        <div class="container-lg justify-content-sm-between">
+          <div
+            class="navbar-brand d-flex align-items-center justify-content-start gap-3"
+          >
+            <div
+              class="icon d-flex justify-content-center align-items-center text-white rounded-4 shadow-lg"
+            >
+              <i class="fa-solid fa-address-book"></i>
+            </div>
+            <div class="text d-flex flex-column">
+              <h1 class="fs-4 fw-bolder m-0 p-0">
+                Contact<span style="color: #6930fa">Hub</span>
+              </h1>
+              <p class="text-secondary m-0 p-0 fw-semibold p-title">
+                Smart Contact Manager
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <form
+              class="d-flex align-items-center justify-content-center gap-md-3 gap-0 ms-auto"
+            >
+              <div
+                class="icons d-flex align-items-center justify-content-center gap-md-2 gap-0"
+              >
+                <button
+                  type="button"
+                  class="btn fw-semibold btn-primary-header text-white border-0 d-flex align-items-center justify-content-center rounded-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                >
+                  <i class="fa-solid fa-plus fa-2xs me-1"></i>
+                  <span
+                    >Add <span class="d-none d-sm-inline">Contact</span></span
+                  >
+                </button>
+
+                <button
+                  type="button"
+                  class="d-none d-lg-block btn nav-header-btn border border-0 d-flex gap-1 align-items-center justify-content-center rounded-3"
+                >
+                  <i class="fa-solid fa-bell" title="Notification"></i>
+                </button>
+                <button
+                  type="button"
+                  class="d-none d-lg-block btn nav-header-btn border border-0 d-flex gap-1 align-items-center justify-content-center rounded-3"
+                >
+                  <i class="fa-solid fa-gear" title="Settings"></i>
+                </button>
+              </div>
+
+              <div
+                class="d-flex gap-1 m-2 m-lg-0 align-items-center justify-content-center"
+              >
+                <img
+                  src="./assets/images/avater-m-one.jpg"
+                  title="Profile Image"
+                  class="avatar-image rounded-4 shadow-lg border border-2 overflow-hidden cursor-pointer d-none d-md-block"
+                  style="width: 45px; height: 45px"
+                  alt="Avatar"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content rounded-4">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 fw-bolder" id="staticBackdropLabel">
+                Add New Contact
+              </h1>
+              <button
+                type="button"
+                class="btn nav-header-btn ms-auto border border-0 d-flex gap-1 align-items-center justify-content-center rounded-3"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                id="cancelModalBtn"
+              >
+                <i class="fa-solid fa-xmark" title="Close"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="contactForm" class="p-4">
+                <div class="text-center mb-4">
+                  <div
+                    id="avatarPreview"
+                    class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white fs-3 fw-bold mx-auto cursor-pointer"
+                    style="width: 96px; height: 96px"
+                  >
+                    <img
+                      id="avatarImagePreview"
+                      src=""
+                      alt="Avatar"
+                      class="rounded-circle overflow-hidden d-none"
+                    />
+                    <i
+                      class="fa-solid fa-user d-block"
+                      id="imagePlaceHolder"
+                    ></i>
+                  </div>
+
+                  <label
+                    class="btn btn-light btn-sm mt-3 d-inline-flex align-items-center gap-2 rounded-2 p-2"
+                  >
+                    <i class="fas fa-camera text-secondary"></i>
+                    <span>Change Photo</span>
+                    <input
+                      type="file"
+                      id="avatarImageInput"
+                      accept="image/*"
+                      hidden
+                    />
+                  </label>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">
+                    Full Name <span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="contactName"
+                    class="form-control bg-light px-3 py-2 rounded-3"
+                    placeholder="Enter full name"
+                    oninput="validated(this)"
+                  />
+                  <div class="invalid-feedback">
+                    <span>Full Name is invalid</span>
+                    <small>
+                      <ul>
+                        <li>
+                          Only letters (a-z, A-Z), numbers (0-9), and spaces
+                          allowed
+                        </li>
+                        <li>Length must be between 3 and 100 characters</li>
+                      </ul>
+                    </small>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">
+                    Phone Number <span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="contactPhone"
+                    class="form-control bg-light px-3 py-2 rounded-3"
+                    placeholder="e.g., 01012345678"
+                    oninput="validated(this)"
+                  />
+                  <div class="invalid-feedback">
+                    <span>Phone Number is invalid</span>
+                    <small>
+                      <ul>
+                        <li>Phone must be unique</li>
+                        <li>Egyptian Numbers Only</li>
+                        <li>Only digits (0-9) allowed</li>
+                        <li>Length must be between 7 and 15 digits</li>
+                      </ul>
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">Email Address</label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    class="form-control bg-light px-3 py-2 rounded-3"
+                    placeholder="name@example.com"
+                    oninput="validated(this)"
+                  />
+                  <div class="invalid-feedback">
+                    <span>Email is invalid</span>
+                    <small>
+                      <ul>
+                        <li>Email must be unique</li>
+                        <li>
+                          Must follow standard email format:<span
+                            class="bg-light fw-semibold p-1 rounded-2"
+                            >username@domain.extension</span
+                          >
+                        </li>
+                        <li>
+                          Username can include letters, numbers, dots (.),
+                          underscores (_), percent (%), plus (+), and hyphens
+                          (-)
+                        </li>
+                        <li>
+                          Domain can include letters, numbers, hyphens (-), and
+                          dots (.)
+                        </li>
+                        <li>Extension must have at least 2 letters</li>
+                      </ul>
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">Address</label>
+                  <input
+                    type="text"
+                    id="contactAddress"
+                    class="form-control bg-light px-3 py-2 rounded-3"
+                    placeholder="Enter address"
+                    oninput="validated(this)"
+                  />
+                  <div class="invalid-feedback">
+                    <span>Address is invalid</span>
+                    <small>
+                      <ul>
+                        <li>
+                          Letters (a-z, A-Z), numbers (0-9), spaces, and symbols
+                          like
+                          <span class="bg-light fw-semibold p-1 rounded-2"
+                            >. , ! ? ( ) -</span
+                          >
+                          allowed
+                        </li>
+                        <li>Length must be between 10 and 500 characters</li>
+                      </ul>
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Group -->
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">Group</label>
+                  <select
+                    id="contactGroup"
+                    class="form-select bg-light px-3 py-2 rounded-3"
+                  >
+                    <option value="none">Select a group</option>
+                    <option value="family">Family</option>
+                    <option value="friends">Friends</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                <!-- Notes -->
+                <div class="mb-3">
+                  <label class="form-label fw-semibold">Notes</label>
+                  <textarea
+                    id="contactNotes"
+                    rows="2"
+                    class="form-control bg-light px-3 py-2 rounded-3"
+                    placeholder="Add notes about this contact"
+                  ></textarea>
+                  <div class="valid-feedback">Notes is valid</div>
+                  <div class="invalid-feedback">
+                    <span>Notes is invalid</span>
+                    <small>
+                      <ul>
+                        <li>Allows letters and spaces</li>
+                        <li>Enforces a realistic length (10-500 chars)</li>
+                      </ul>
+                    </small>
+                  </div>
+                </div>
+
+                <!-- Checkboxes -->
+                <div class="d-flex flex-wrap gap-4 mb-4">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="contactFavorite"
+                    />
+                    <label
+                      class="form-check-label fw-semibold"
+                      for="contactFavorite"
+                    >
+                      <i class="fas fa-star text-warning me-1"></i> Favorite
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="contactEmergency"
+                    />
+                    <label
+                      class="form-check-label fw-semibold"
+                      for="contactEmergency"
+                    >
+                      <i class="fas fa-heart-pulse text-danger me-1"></i>
+                      Emergency
+                    </label>
+                  </div>
+                </div>
+
+                <input type="hidden" id="contactId" />
+
+                <!-- Actions -->
+                <div class="d-flex flex-column flex-sm-row gap-3">
+                  <button
+                    type="button"
+                    id="cancelModalBtn"
+                    data-bs-dismiss="modal"
+                    class="btn btn-light w-100 fw-semibold rounded-3 border border-1"
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary-form text-white rounded-3 w-100 fw-semibold d-flex align-items-center justify-content-center gap-2"
+                  >
+                    <i class="fas fa-check" data-bs-dismiss="modal"></i> Save
+                    Contact
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="container-lg py-5 my-5">
+      <section id="quick-stats" class="mb-5 mt-sm-4 mt-0"></section>
+
+      <div class="row g-4">
+        <div class="col-xl-9">
+          <section id="contacts-header" class="mb-4">
+            <h2 class="fw-bold">All Contacts</h2>
+            <p id="contacts-header-text" class="text-muted small">
+              Manage and organize your 0 contacts
+            </p>
+
+            <div class="input-group mt-3">
+              <div class="input-group flex-nowrap">
+                <i
+                  class="fas fa-magnifying-glass text-secondary position-absolute top-50 start-0 translate-middle-y ms-3 z-3"
+                ></i>
+                <input
+                  type="text"
+                  class="form-control py-2 px-5 z-1 rounded-3"
+                  id="searchInput"
+                  placeholder="Search by name, phone, or email..."
+                  aria-label="searchInput"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section id="contacts-main">
+            <div class="row g-3" id="contacts-main-content"></div>
+          </section>
+        </div>
+
+        <aside class="col-xl-3">
+          <section
+            id="favorites-section"
+            class="card shadow-sm rounded-4 border border-1 mb-4 overflow-hidden"
+          >
+            <div class="card-header bg-fav d-flex gap-2 align-items-center">
+              <span class="bg-warning text-white rounded-3 p-2">
+                <i class="fas fa-star"></i>
+              </span>
+              <div>
+                <div class="fw-semibold">Favorites</div>
+                <small class="text-desc"
+                  >Quick access to starred contacts</small
+                >
+              </div>
+            </div>
+
+            <div id="favorites-content" class="row p-3 g-2"></div>
+          </section>
+
+          <section
+            id="emergency-contacts"
+            class="card shadow-sm rounded-4 border border-1 overflow-hidden"
+          >
+            <div class="card-header bg-emer d-flex gap-2 align-items-center">
+              <span class="bg-danger text-white rounded-3 p-2">
+                <i class="fas fa-heart-pulse"></i>
+              </span>
+              <div>
+                <div class="fw-semibold">Emergency</div>
+                <small class="text-desc"
+                  >Important contacts for urgent calls</small
+                >
+              </div>
+            </div>
+
+            <div id="emergency-content" class="row p-3 g-2"></div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

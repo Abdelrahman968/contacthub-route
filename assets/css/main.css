@@ -1,0 +1,361 @@
+:root,
+:host {
+  --color-scrollbar-thumb: #fe886a4d;
+  --color-scrollbar-thumb-hover: rgba(254, 136, 106, 0.302);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar-thumb);
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-scrollbar-thumb-hover);
+}
+
+body {
+  min-height: 100vh;
+  background-color: #f5f7fd;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-help {
+  cursor: help !important;
+}
+
+.p-title {
+  font-size: 12px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #6034f9;
+}
+
+.icons span i {
+  color: #4a5565;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.icons span i:hover {
+  color: #f54900;
+}
+
+.nav-header-btn {
+  padding: 10px;
+  color: #6a7282;
+  transition: all 0.3s ease;
+}
+
+.nav-header-btn:hover {
+  color: #364153;
+  background-color: #f3f4f6;
+}
+
+.btn-primary-header {
+  background: linear-gradient(to right, #7c3aed, #4f46e5);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-header:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary-form {
+  background: linear-gradient(to right, #7c3aed, #4f46e5);
+  transition: all 0.3s ease;
+}
+
+.btn-primary-form:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.bg-secondary {
+  --bs-bg-opacity: 1;
+  background-color: #f3f4f6 !important;
+}
+
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Main */
+.avatar-gradient {
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
+  width: 56px;
+  height: 56px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.avatar-container {
+  width: 56px;
+  height: 56px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Small overlay badges */
+.overlay-badge {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 8px;
+}
+
+.overlay-heart {
+  background-color: #f43f5e;
+  color: #fff;
+  bottom: -2px;
+  right: -2px;
+}
+
+.overlay-star {
+  background-color: #fbbf24;
+  color: #fff;
+  top: -2px;
+  right: -2px;
+}
+
+.custom-card {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  border-color: #e5e7eb;
+}
+
+.badge-custom {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.footer-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.footer-btn.phone {
+  color: #009966;
+  background-color: #ecfdf5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-btn.phone:hover {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.footer-btn.email {
+  color: #7f22fe;
+  background-color: #f5f3ff;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-btn.email:hover {
+  background-color: #ede9fe;
+  color: #6d28d9;
+}
+
+.footer-btn.notes {
+  color: #7f22fe;
+  background-color: #f5f3ff;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-btn.notes:hover {
+  background-color: #ede9fe;
+  color: #6d28d9;
+}
+
+.text-truncate-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bg-purple-subtle {
+  background-color: #f3e8ff !important;
+}
+
+.text-purple {
+  color: #7c3aed !important;
+}
+
+.none.badge-custom {
+  display: none;
+}
+.friends.badge-custom {
+  color: #00884d;
+  background-color: #dbfce7;
+}
+
+.work.badge-custom {
+  color: #8207e3;
+  background-color: #f3e8ff;
+}
+
+.family.badge-custom {
+  color: #2d47e6;
+  background-color: #dbeafe;
+}
+
+.school.badge-custom {
+  color: #da7d00;
+  background-color: #fef3c6;
+}
+
+.other.badge-custom {
+  color: #4e557e;
+  background-color: #f3f4f6;
+}
+
+.emergency.badge-custom {
+  color: #f14471;
+  background-color: #fff1f2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.favorites-btn {
+  color: #fbbf24;
+  background-color: #fffbeb;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.favorites-btn:hover {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.emergency-btn {
+  color: #f43f5e;
+  background-color: #fff1f2;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.emergency-btn:hover {
+  background-color: #ffe4e6;
+  color: #e11d48;
+}
+
+.edit-btn:hover {
+  background-color: #f5f3ff;
+  color: #7f22fe;
+}
+
+.delete-btn:hover {
+  background-color: #fff1f2;
+  color: #f14471;
+}
+
+.contact-item {
+  transition: background-color 0.2s ease;
+}
+
+.contact-item:hover {
+  background-color: #fffbeb;
+}
+
+.avatar-box {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom right, #f43f5e, #ec4899);
+}
+
+.call-btn {
+  width: 32px;
+  height: 32px;
+  background-color: #d1fae5;
+  color: #059669;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover .call-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+.bg-fav {
+  background-color: #fff8ec;
+}
+
+#favorites-section:hover .contact-item {
+  background-color: #fff8ec !important;
+}
+
+.bg-emer {
+  background-color: #fff1f2;
+}
+
+#emergency-contacts:hover .contact-item {
+  background-color: #fff1f2 !important;
+}
+
+.text-desc {
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.call-btn-em {
+  width: 32px;
+  height: 32px;
+  background-color: #ffe4e6;
+  color: #ec003f;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.contact-item:hover .call-btn-em {
+  background-color: #ec003f;
+  color: white;
+}

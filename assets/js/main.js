@@ -87,6 +87,7 @@ function displayEmptyState() {
     '<div class="card-body text-center text-muted small p-5">No favorites yet</div>';
   elements.emergency.innerHTML =
     '<div class="card-body text-center text-muted small p-5">No emergency contacts</div>';
+  renderStats()
 }
 
 // Validation
